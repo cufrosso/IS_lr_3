@@ -87,40 +87,51 @@ X-Content-Type-Options: nosniff
 
 7. Значимые фрагменты кода
 
-*Дизлайк(или уменьшение счётчика лайка)*
+*Функция добавления канала*
 ```php
-if (isset($_POST['unliked'])) {
-		$post_id = $_POST['postid'];
-		$result = mysqli_query($connect, "SELECT * FROM post WHERE id = $post_id");
-		$row = mysqli_fetch_array($result);
-		$like = $row['likes'];
-        if ($like < 0){
-            $like = 0;
+function add_channel(){
+        let name = prompt('Введите название');
+        if (name == null || name.trim() == ""){
+            alert("Введено пустое поле");
+            return 0;
+        }
+        if (name.length > 32){
+            alert("Максимальная длина названия - 32 символа");
+            return 0;
         }
 
-		mysqli_query($connect, "DELETE FROM likes WHERE postid = $post_id");
-		mysqli_query($connect, "UPDATE post SET likes = $like - 1 WHERE id = $post_id");
-
-		echo $like - 1;
-		exit();
-	}
+        $.ajax({
+            url: "ajax/add_channel.php",
+            type: "POST",
+            cache: false,
+            data: {"name": name, "creator": user},
+            dataType: "html",
+            success: function (data) {
+                if (data == "1") {
+                    load_channels();
+                }
+                else{
+                    alert("Канал с таким названием уже существует");
+                }
+            }
+        });
+    }
 ```
 
-*Пагинация*
+*Функция отправления сообщения*
 ```php
-$post = mysqli_query($connect, "SELECT * FROM post ORDER BY id DESC");
-    $posts = mysqli_fetch_all($post);
-
-    $total = count($posts); // кол-во постов
-    $per_page = 7; // кол-во постов на одну стр
-    $count_page = ceil( $total / $per_page ); // кол-во страниц
-    $page = $_GET['page']??1; // определение страницы по GET
-    $page = (int)$page;
-
-    if(!$page || $page < 1){
-        $page = 1;
-    } else if ($page > $count_page) {
-        $page = $count_page;
+function send_message(){
+        let message = $("#new_message").val();
+        $.ajax({
+            url: "ajax/new_message.php",
+            type: "POST",
+            cache: false,
+            data: {"channel_id": active_channel, "message": message, "user": user},
+            dataType: "html",
+            success: function(data){
+                open_channel(active_channel);
+                $("#new_message").val('');
+            }
+        });
     }
-    $start = ($page - 1) * $per_page;
 ```
