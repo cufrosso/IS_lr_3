@@ -63,27 +63,26 @@
 
 *Запрос*
 
-POST /lr_2/post.php HTTP/1.1
-Host: localhost
-Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
-Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryZKZMQG3xtLB9EA47
-sec-ch-ua: "Not?A_Brand";v="8", "Chromium";v="108", "Google Chrome";v="108"
-sec-ch-ua-mobile: ?0
-sec-ch-ua-platform: "Windows"
-Upgrade-Insecure-Requests: 1
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/108.0.0.0 Safari/537.36
+PPOST /lr_3/ajax/new_message.php HTTP/1.1 <br>
+Host: localhost <br>
+Accept: text/html, */*; q=0.01 <br>
+Content-Type: application/x-www-form-urlencoded; charset=UTF-8 <br>
+sec-ch-ua: "Not_A Brand";v="99", "Google Chrome";v="109", "Chromium";v="109" <br>
+sec-ch-ua-mobile: ?0 <br>
+sec-ch-ua-platform: "Windows" <br>
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/109.0.0.0 Safari/537.36 <br>
+X-Requested-With: XMLHttpRequest <br>
 
 *Ответ*
 
-HTTP/1.1 302 Found
-Connection: Keep-Alive
-Content-Length: 0
-Content-Type: text/html; charset=UTF-8
-Date: Sat, 24 Dec 2022 06:29:18 GMT
-Keep-Alive: timeout=120, max=999
-Location: index.php
-Server: Apache
-X-Content-Type-Options: nosniff
+HTTP/1.1 200 OK <br>
+Connection: Keep-Alive <br>
+Content-Length: 1 <br>
+Content-Type: text/html; charset=UTF-8 <br>
+Date: Wed, 11 Jan 2023 22:30:48 GMT <br>
+Keep-Alive: timeout=120, max=978 <br>
+Server: Apache <br>
+X-Content-Type-Options: nosniff <br>
 
 7. Значимые фрагменты кода
 
