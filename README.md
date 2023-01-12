@@ -49,11 +49,11 @@
 
 *Add channel*
 
-![Add_channel](add_channel.png)
+![Add_channel](add_ch.png)
 
 *Add message*
 
-![Add_message](add_message.png)
+![Add_message](add_m.png)
 
 
 
