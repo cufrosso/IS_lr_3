@@ -47,17 +47,15 @@
 
 5. Алгоритмы
 
-*Add post*
+*Add channel*
 
-![add]()
+![Add_channel](add_channel.png)
 
-*Delete post*
+*Add message*
 
-![delete]()
+![Add_message](add_message.png)
 
-*Reaction*
 
-![Reaction]()
 
 6. HTTP запросы/ответы
 
